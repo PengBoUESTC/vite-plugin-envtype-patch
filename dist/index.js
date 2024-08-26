@@ -6,7 +6,7 @@ var node_process = require('node:process');
 var dtsGen = require('dts-gen');
 
 const envTypePatch = (config) => {
-    const { patchKey = 'ImportMetaEnv', fileName = 'env.d.ts' } = config;
+    const { patchKey = 'ImportMetaEnv', fileName = 'env.d.ts' } = config || {};
     const targetPath = node_path.join(node_process.cwd(), fileName);
     return {
         name: 'vite-plugin-envtype-patch',
