@@ -11,8 +11,8 @@ export interface PatchConfig {
   fileName: string
 }
 
-export const envTypePatch = (config: PatchConfig) => {
-  const { patchKey = 'ImportMetaEnv', fileName = 'env.d.ts' } = config
+export const envTypePatch = (config?: Partial<PatchConfig>) => {
+  const { patchKey = 'ImportMetaEnv', fileName = 'env.d.ts' } = config || {}
   const targetPath = join(cwd(), fileName)
 
   return  {

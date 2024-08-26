@@ -1,38 +1,28 @@
-# pkg-template
+# vite-plugin-envtype-patch
 
-## init
+## Basic
 
-```bash
-yarn
+gen dts file for import.meat.env;
+
+Get all env values in `configResolved` hook, and gen dts by `dts-gen`.
+
+```typescript
+/// <reference types="vite/client" /> 
+interface ImportMetaEnv  {
+  VITE_XXX: string
+  // and so on
+};
+
 ```
 
-## build
+## How to use
 
-```bash
-yarn build
-```
+```typescript
+import { envTypePatch } from 'vite-plugin-envtype-patch'
 
-## release
-
-1. rewirte release config file `release.config.ts`, set your `releaseUser` & `scripts`
-2. run command
-```bash
-yarn release
-```
-
-## note
-
-1. init jest config file 
-```bash
-npx jest --init
-```
-
-2. simple git hooks init 
-```bash
-npx simple-git-hooks
-```
-
-3. init eslint config
-```bash
-npm init @eslint/config
+{
+  plugins: [
+    envTypePatch({})
+  ]
+}
 ```
