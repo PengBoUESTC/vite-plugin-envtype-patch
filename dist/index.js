@@ -10,6 +10,7 @@ const envTypePatch = (config) => {
     const targetPath = node_path.join(node_process.cwd(), fileName);
     return {
         name: 'vite-plugin-envtype-patch',
+        apply: 'serve',
         configResolved(resolvedConfig) {
             const { env } = resolvedConfig;
             const envDts = dtsGen.generateIdentifierDeclarationFile(patchKey, env);
