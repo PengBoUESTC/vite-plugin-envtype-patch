@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`nest test nest test 1`] = `
+"{
+	a: number,
+	b: string,
+}
+"
+`;
+
+exports[`nest test nest test 2`] = `
+"{
+	a: number,
+	b: string,
+	c:{
+		d: boolean,
+	}
+	e:[
+		 number,
+		 string,
+		 boolean,
+		{
+			f:{
+				z: null,
+			}
+		}
+	]
+}
+"
+`;

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`edge test function type 1`] = `
+"{
+	a: any
+}
+"
+`;
+
+exports[`edge test once to be false 1`] = `
+"{
+	a: number,
+}
+"
+`;

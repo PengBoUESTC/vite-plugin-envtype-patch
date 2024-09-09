@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`base test base boolean 1`] = `
+"{
+	a: boolean,
+}
+"
+`;
+
+exports[`base test base null 1`] = `
+"{
+	a: null,
+}
+"
+`;
+
+exports[`base test base number 1`] = `
+"{
+	a: number,
+}
+"
+`;
+
+exports[`base test base string 1`] = `
+"{
+	a: string,
+}
+"
+`;
+
+exports[`base test base undefind 1`] = `
+"{
+	a: undefined,
+}
+"
+`;
+
+exports[`base test empty string 1`] = `
+"{
+	a: string,
+}
+"
+`;
