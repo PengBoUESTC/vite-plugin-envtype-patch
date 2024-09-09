@@ -4,7 +4,7 @@
 
 gen dts file for import.meat.env;
 
-Get all env values in `configResolved` hook, and gen dts by `dts-gen`.
+Get all env values in `configResolved` hook, **zero** dependency.
 
 ```typescript
 /// <reference types="vite/client" /> 
@@ -25,4 +25,19 @@ import { envTypePatch } from 'vite-plugin-envtype-patch'
     envTypePatch({})
   ]
 }
+```
+
+## What's more
+
+- convert simple type for `javascript` value
+```typescript
+import { TypeConvert } from 'vite-plugin-envtype-patch'
+
+const typeConvert = new TypeConvert({ once: false })
+typeConvert.genSimpleType({
+  a: 100,
+})
+
+// call toString
+const output = `${typeConvert}
 ```
