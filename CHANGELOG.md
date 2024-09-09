@@ -1,3 +1,7 @@
+## [0.0.4](https://github.com/PengBoUESTC/vite-plugin-envtype-patch/compare/v0.0.3...v0.0.4) (2024-09-09)
+
+
+
 ## [0.0.3](https://github.com/PengBoUESTC/vite-plugin-envtype-patch/compare/v0.0.2...v0.0.3) (2024-08-26)
 
 

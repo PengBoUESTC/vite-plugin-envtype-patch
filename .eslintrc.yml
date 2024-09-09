@@ -14,12 +14,10 @@ plugins:
 rules:
   indent:
     - error
-    - 2
+    - tab
   quotes:
     - error
     - single
   semi:
     - error
     - never
-  @typescript-eslint/ban-ts-comment:
-    - 0

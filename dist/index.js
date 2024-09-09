@@ -26,7 +26,10 @@ class TypeConvert {
     }
     toString() {
         const output = this.output;
-        this.reset();
+        const { once = true } = this.options;
+        if (once) {
+            this.reset();
+        }
         return output;
     }
     print(s) {
@@ -50,16 +53,13 @@ class TypeConvert {
         }
         const referenceType = ReferenceType[typeString];
         if (!referenceType) {
-            this.print(DefaultType)
-                .print('\n');
+            this.print(' ').print(DefaultType).print('\n');
             return;
         }
         if (referenceType === ReferenceType.Array) {
-            this.print('[')
-                .print('\n');
+            this.print('[').print('\n');
             value.forEach((v) => {
-                this.print('\t'.repeat(level))
-                    .genSimpleType(v, level + 1);
+                this.print('\t'.repeat(level)).genSimpleType(v, level + 1);
             });
             this.print('\t'.repeat(level - 1))
                 .print(']')
@@ -67,8 +67,7 @@ class TypeConvert {
             return;
         }
         if (referenceType === ReferenceType.Object) {
-            this.print('{')
-                .print('\n');
+            this.print('{').print('\n');
             Object.entries(value).forEach(([key, value]) => {
                 this.print('\t'.repeat(level))
                     .print(key)
@@ -82,7 +81,7 @@ class TypeConvert {
     }
 }
 const envTypePatch = (config) => {
-    const { patchKey = 'ImportMetaEnv', fileName = 'env.d.ts', genOptions } = config || {};
+    const { patchKey = 'ImportMetaEnv', fileName = 'env.d.ts', genOptions, } = config || {};
     const targetPath = node_path.join(node_process.cwd(), fileName);
     return {
         name: 'vite-plugin-envtype-patch',
@@ -90,10 +89,11 @@ const envTypePatch = (config) => {
         configResolved(resolvedConfig) {
             const { env } = resolvedConfig;
             const typeConvert = new TypeConvert(genOptions);
-            typeConvert.print(`/// <reference types="vite/client" /> \ninterface ${patchKey} `)
+            typeConvert
+                .print(`/// <reference types="vite/client" /> \ninterface ${patchKey} `)
                 .genSimpleType(env);
             node_fs.writeFile(targetPath, `${typeConvert}`, {
-                flag: 'w+'
+                flag: 'w+',
             }, (error) => {
                 if (error) {
                     console.error(`${targetPath} write failed`, error);

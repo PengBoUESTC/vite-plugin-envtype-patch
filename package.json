@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-envtype-patch",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "dist/index.js",
   "bin": {},
@@ -46,7 +46,7 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "dist/**/*.{js,ts,d.ts}": [
+    "dist/**/*.{ts,d.ts}": [
       "eslint --fix",
       "prettier --write"
     ]

@@ -1,5 +1,6 @@
 import { type Plugin } from 'vite'
 interface GenOptions {
+  once?: boolean
   fuzzyType?: boolean
 }
 export interface PatchConfig {
